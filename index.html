@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candles Home — інтер'єрні свічки</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('Loft.jpg') center/cover no-repeat;
+  opacity:0.25;
+  z-index:-2;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:-1;
+}
+
+/* HEADER CARD */
+.brand{
+  text-align:center;
+  padding:110px 20px 80px;
+  max-width:800px;
+  margin:auto;
+  background:rgba(20,20,20,.6);
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,.05);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 30px rgba(255,255,255,.05);
+}
+.brand h1{
+  font-size:50px;
+  margin-bottom:10px;
+}
+.brand p{
+  color:#ccc;
+  font-size:18px;
+  margin-bottom:25px;
+}
+.brand .socials button{
+  margin:5px 10px;
+  border:none;
+  border-radius:30px;
+  padding:10px 22px;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
+  transition:.3s;
+  backdrop-filter:blur(12px);
+}
+.brand .socials button:hover{
+  background:rgba(255,255,255,.3);
+  box-shadow:0 0 15px rgba(255,255,255,.4);
+}
+
+/* PRODUCTS */
+.section{
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.card{
+  background:rgba(20,20,20,.65);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  text-align:center;
+  padding:25px;
+  box-shadow:0 0 25px rgba(255,255,255,.05);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-5px)}
+.card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+.card h3{font-size:22px;margin-bottom:5px}
+.card p{color:#bbb;margin-bottom:10px;font-size:15px}
+.price{font-weight:600;margin-bottom:15px}
+button{
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  border:none;
+  border-radius:15px;
+  padding:12px 25px;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover{
+  background:rgba(255,255,255,.3);
+  box-shadow:0 0 18px rgba(255,255,255,.4);
+  transform:translateY(-2px);
+}
+
+/* ORDER FORM */
+.order{
+  background:rgba(20,20,20,.7);
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(15px);
+  padding:40px;
+  border-radius:24px;
+  max-width:500px;
+  margin:50px auto 80px;
+  text-align:center;
+}
+.order h2{margin-bottom:25px}
+input,select{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  background:#222;
+  border:none;
+  color:#fff;
+  border-radius:10px;
+  font-size:16px;
+}
+.send{
+  background:#0071e3;
+  color:#fff;
+  border:none;
+  border-radius:14px;
+  padding:13px;
+  width:100%;
+  font-size:17px;
+  cursor:pointer;
+  transition:.3s;
+  margin-top:5px;
+}
+.send:hover{
+  background:#005bbf;
+  box-shadow:0 0 20px rgba(0,113,227,.5);
+  transform:translateY(-2px);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#777;
+  font-size:14px;
+  margin-bottom:40px;
+}
+</style>
+</head>
+<body>
+
+<section class="brand">
+  <h1>Candles Home</h1>
+  <p>Твій простір заслуговує більше, ніж просто світло — створи атмосферу тепла, стилю та спокою з нашими інтерʼєрними свічками у лофт-стилі.</p>
+  <div class="socials">
+    <button onclick="window.open('t.me/Candles_Home_UA')">Telegram</button>
+    <button onclick="window.open('https://www.instagram.com/candleshome.store?igsh=MTBhcm05NHRkeWV1YQ==')">Instagram</button>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid">
+    <div class="card">
+      <img src="1.jpg">
+      <h3>Набір XL Black</h3>
+      <p>3 свічки · 22.5 / 15 / 8 см · чорний</p>
+      <div class="price">1499 грн</div>
+      <button onclick="choose('XL Black')">Обрати</button>
+    </div>
+
+    <div class="card">
+      <img src="4.jpg">
+      <h3>Набір XL White</h3>
+      <p>3 свічки · 22.5 / 15 / 8 см · білий</p>
+      <div class="price">1499 грн</div>
+      <button onclick="choose('XL White')">Обрати</button>
+    </div>
+
+    <div class="card">
+      <img src="2.jpg">
+      <h3>L Black</h3>
+      <p>2 свічки · 15 / 8 см</p>
+      <div class="price">999 грн</div>
+      <button onclick="choose('L Black')">Обрати</button>
+    </div>
+
+    <div class="card">
+      <img src="5.jpg">
+      <h3>L White</h3>
+      <p>2 свічки · 15 / 8 см</p>
+      <div class="price">999 грн</div>
+      <button onclick="choose('L White')">Обрати</button>
+    </div>
+    
+    <div class="card">
+  <img src="3.jpg">
+  <h3>Набір S Black</h3>
+  <p>2 свічки · 15 / 8 см · чорний</p>
+  <div class="price">799 грн</div>
+  <button onclick="choose('S Black')">Обрати</button>
+</div>
+
+<div class="card">
+  <img src="6.jpg">
+  <h3>Набір S White</h3>
+  <p>2 свічки · 15 / 8 см · білий</p>
+  <div class="price">799 грн</div>
+  <button onclick="choose('S White')">Обрати</button>
+</div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <h2>Оформлення замовлення</h2>
+
+  <select id="product">
+    <option value="">Оберіть товар</option>
+    <option>XL Black</option>
+    <option>XL White</option>
+    <option>L Black</option>
+    <option>L White</option>
+    <option>S Black</option>
+    <option>S White</option>
+  </select>
+
+  <input id="name" placeholder="Ваше імʼя">
+  <input id="phone" placeholder="Телефон">
+
+  <button class="send" onclick="send()">Відправити</button>
+</section>
+
+<footer>© 2026 Candles Home · Loft Decor</footer>
+
+<script>
+function choose(p){
+  document.getElementById('product').value = p;
+  document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+  
+
+function send(){
+  const token = '8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU';
+  const chat_id = '8629717657';
+
+  const p = document.getElementById('product').value;
+  const n = document.getElementById('name').value;
+  const ph = document.getElementById('phone').value;
+
+  if(!p || !n || !ph){
+    alert('Заповніть усі поля');
+    return;
+  }
+
+  const text = `🕯 Замовлення Candles Home
+Товар: ${p}
+Імʼя: ${n}
+Телефон: ${ph}`;
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      chat_id: chat_id,
+      text: text
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.ok){
+      alert('Відправлено!');
+    } else {
+      alert('Помилка');
+    }
+  })
+  .catch(() => alert('Помилка'));
+}
+</script>
+
+</body>
+</html>
