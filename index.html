@@ -269,7 +269,7 @@ function send(){
     return;
   }
 
-  const text = `🕯 Замовлення Candles Home
+  const text = ' Замовлення Candles Home
 Товар: ${p}
 Імʼя: ${n}
 Телефон: ${ph}`;
@@ -285,7 +285,7 @@ function send(){
   .then(res => res.json())
   .then(data => {
     if(data.ok){
-      alert('Відправлено!');
+      alert('Дякуємо за замовлення');
     } else {
       alert('Помилка');
     }
