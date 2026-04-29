@@ -9,7 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#000;
+  background:transparent;
   color:#fff;
   overflow-x:hidden;
 }
@@ -27,8 +27,7 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.3); /* было .65 */
-  opacity:0.7;
+  background:rgba(0,0,0,.25); /* было слишком темно */
   z-index:-1;
 }
 
