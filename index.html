@@ -214,7 +214,7 @@ footer{
       <h3>Аромасвічка з таємним написом</h3>
       <p>Чорна</p>
       <div class="price">180 грн</div>
-      <button onclick="choose('Аромасвічка Чорна')">Обрати</button>
+      <button onclick="choose('black')">Обрати</button>
     </div>
 
     <div class="card">
@@ -226,7 +226,7 @@ footer{
       <h3>Аромасвічка з таємним написом</h3>
       <p>Біла</p>
       <div class="price">180 грн</div>
-      <button onclick="choose('Аромасвічка Біла')">Обрати</button>
+      <button onclick="choose('white')">Обрати</button>
     </div>
 
   </div>
@@ -237,13 +237,9 @@ footer{
 
 <select id="product">
   <option value="">Оберіть товар</option>
-  <option>Аромасвічка Чорна</option>
-  <option>Аромасвічка Біла</option>
+  <option value="black">Аромасвічка Чорна</option>
+  <option value="white">Аромасвічка Біла</option>
 </select>
-
-<input id="name" placeholder="Ваше імʼя">
-<input id="phone" placeholder="Телефон">
-
   <button class="send" onclick="send()">Відправити</button>
 </section>
 
@@ -253,6 +249,7 @@ footer{
 function choose(p){
   document.getElementById('product').value = p;
   document.getElementById('order').scrollIntoView({behavior:'smooth'});
+  </script>
 }
 <script>
 function send(){
