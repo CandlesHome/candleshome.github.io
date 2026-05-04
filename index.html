@@ -19,6 +19,23 @@ body{
   border-radius:25px;
 }
 
+/* ФОН */
+.brand::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('1.1.jpg') center/cover no-repeat;
+  z-index:-2;
+}
+
+/* ЗАТЕМНЕНИЕ */
+.brand::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  z-index:-1;
+}
 .section{
   padding:40px 20px;
 }
