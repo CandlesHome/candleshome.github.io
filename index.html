@@ -31,15 +31,32 @@ body::after{
 }
 
 .brand{
+  position:relative;
   text-align:center;
   padding:110px 20px 80px;
   max-width:800px;
   margin:auto;
-  background:rgba(20,20,20,.6);
   border-radius:25px;
-  border:1px solid rgba(255,255,255,.05);
-  backdrop-filter:blur(12px);
-  box-shadow:0 0 30px rgba(255,255,255,.05);
+  overflow:hidden;
+}
+
+/* ФОН КАРТОЧКИ */
+.brand::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('1.1.jpg') center/cover no-repeat;
+  z-index:-2;
+}
+
+/* ЗАТЕМНЕНИЕ */
+.brand::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:-1;
+}
 }
 .brand h1{font-size:50px;margin-bottom:10px}
 .brand p{color:#ccc;font-size:18px;margin-bottom:25px}
