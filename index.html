@@ -14,7 +14,6 @@ body{
   overflow-x:hidden;
 }
 
-/* BACKGROUND */
 body::before{
   content:"";
   position:fixed;
@@ -27,11 +26,10 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.25); /* было слишком темно */
+  background:rgba(0,0,0,.25);
   z-index:-1;
 }
 
-/* HEADER CARD */
 .brand{
   text-align:center;
   padding:110px 20px 80px;
@@ -43,15 +41,9 @@ body::after{
   backdrop-filter:blur(12px);
   box-shadow:0 0 30px rgba(255,255,255,.05);
 }
-.brand h1{
-  font-size:50px;
-  margin-bottom:10px;
-}
-.brand p{
-  color:#ccc;
-  font-size:18px;
-  margin-bottom:25px;
-}
+.brand h1{font-size:50px;margin-bottom:10px}
+.brand p{color:#ccc;font-size:18px;margin-bottom:25px}
+
 .brand .socials button{
   margin:5px 10px;
   border:none;
@@ -69,7 +61,6 @@ body::after{
   box-shadow:0 0 15px rgba(255,255,255,.4);
 }
 
-/* PRODUCTS */
 .section{
   padding:60px 20px;
   max-width:1100px;
@@ -91,14 +82,25 @@ body::after{
   transition:.3s;
 }
 .card:hover{transform:translateY(-5px)}
-.card img{
-  width:100%;
+
+.carousel{
+  position:relative;
+  overflow:hidden;
   border-radius:15px;
   margin-bottom:15px;
 }
+.carousel img{
+  width:100%;
+  display:none;
+}
+.carousel img.active{
+  display:block;
+}
+
 .card h3{font-size:22px;margin-bottom:5px}
 .card p{color:#bbb;margin-bottom:10px;font-size:15px}
 .price{font-weight:600;margin-bottom:15px}
+
 button{
   background:rgba(255,255,255,.15);
   color:#fff;
@@ -115,7 +117,6 @@ button:hover{
   transform:translateY(-2px);
 }
 
-/* ORDER FORM */
 .order{
   background:rgba(20,20,20,.7);
   border:1px solid rgba(255,255,255,.1);
@@ -127,6 +128,7 @@ button:hover{
   text-align:center;
 }
 .order h2{margin-bottom:25px}
+
 input,select{
   width:100%;
   padding:13px;
@@ -137,6 +139,7 @@ input,select{
   border-radius:10px;
   font-size:16px;
 }
+
 .send{
   background:#0071e3;
   color:#fff;
@@ -155,91 +158,86 @@ input,select{
   transform:translateY(-2px);
 }
 
-/* FOOTER */
 footer{
   text-align:center;
   color:#777;
   font-size:14px;
   margin-bottom:40px;
 }
-  .instagram{
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-}
 
-.instagram:hover{
-  filter:brightness(1.1);
-  box-shadow:0 0 15px rgba(220,39,67,.5);
+.instagram{
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 .telegram{
   background:#229ED9;
 }
-
-.telegram:hover{
-  background:#1b8ec4;
-  box-shadow:0 0 15px rgba(34,158,217,.5);
-}
 </style>
 </head>
+
 <body>
 
 <section class="brand">
   <h1>Candles Home</h1>
-  <p>Твій простір заслуговує більше, ніж просто світло — створи атмосферу тепла, стилю та спокою з нашими інтерʼєрними свічками у лофт-стилі.</p>
-  <p>Також ви можете подивитися більш детально ці та інші вироби у нашому Telegram та Instagram переходьте за посиланнями</p>
+  <p>Твій простір заслуговує більше, ніж просто світло</p>
   <div class="socials">
     <button onclick="window.open('https://t.me/Candles_Home_UA')">Telegram</button>
-    <button onclick="window.open('https://www.instagram.com/candleshome.store?igsh=MTBhcm05NHRkeWV1YQ==')">Instagram</button>
+    <button onclick="window.open('https://www.instagram.com/candleshome.store')">Instagram</button>
   </div>
 </section>
+
 <section class="section">
   <div class="grid">
 
     <div class="card">
-      <img src="black.jpg">
+      <div class="carousel">
+        <img src="black1.jpg" class="active">
+        <img src="black2.jpg">
+        <img src="black3.jpg">
+      </div>
       <h3>Аромасвічка з таємним написом</h3>
-      <p>Чорна · індивідуальне повідомлення всередині</p>
+      <p>Чорна</p>
       <div class="price">180 грн</div>
       <button onclick="choose('Аромасвічка Чорна')">Обрати</button>
     </div>
 
     <div class="card">
-      <img src="white.jpg">
+      <div class="carousel">
+        <img src="white1.jpg" class="active">
+        <img src="white2.jpg">
+        <img src="white3.jpg">
+      </div>
       <h3>Аромасвічка з таємним написом</h3>
-      <p>Біла · індивідуальне повідомлення всередині</p>
+      <p>Біла</p>
       <div class="price">180 грн</div>
       <button onclick="choose('Аромасвічка Біла')">Обрати</button>
     </div>
-</section>
 
+  </div>
+</section>
 
 <section class="order" id="order">
   <h2>Оформлення замовлення</h2>
 
- <select id="product">
-  <option value="">Оберіть товар</option>
-  <option>Аромасвічка Чорна</option>
-  <option>Аромасвічка Біла</option>
- </select>
+  <select id="product">
+    <option value="">Оберіть товар</option>
+    <option>Аромасвічка Чорна</option>
+    <option>Аромасвічка Біла</option>
+  </select>
 
   <input id="name" placeholder="Ваше імʼя">
-  <input id="phone" pl<section class="section">
-  <div class="grid">
-
-  </div>
-</section>aceholder="Телефон">
+  <input id="phone" placeholder="Телефон">
 
   <button class="send" onclick="send()">Відправити</button>
 </section>
 
-<footer>© 2026 Candles Home · Loft Decor</footer>
+<footer>© 2026 Candles Home</footer>
 
 <script>
 function choose(p){
   document.getElementById('product').value = p;
   document.getElementById('order').scrollIntoView({behavior:'smooth'});
 }
-  
-
+<script>
 function send(){
   const token = '8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU';
   const chat_id = '8629717657';
@@ -253,16 +251,16 @@ function send(){
     return;
   }
 
-  const text = ' Замовлення Candles Home
+  const text = `Замовлення Candles Home
 Товар: ${p}
 Імʼя: ${n}
 Телефон: ${ph}`;
 
-  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  fetch(`https://api.telegram.org/bot8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU/sendMessage`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      chat_id: chat_id,
+      chat_id: 245672952,
       text: text
     })
   })
@@ -276,6 +274,20 @@ function send(){
   })
   .catch(() => alert('Помилка'));
 }
+</script>
+
+}
+
+document.querySelectorAll('.carousel').forEach(carousel=>{
+  let index = 0;
+  const images = carousel.querySelectorAll('img');
+
+  setInterval(()=>{
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 2500);
+});
 </script>
 
 </body>
