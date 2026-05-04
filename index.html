@@ -10,9 +10,47 @@
 body{
   font-family:sans-serif;
   color:#fff;
-  background:#111;
+  background:url('Loft.jpg') center/cover no-repeat;
+}
+.banner{
+  max-width:1100px;
+  margin:30px auto;
+  border-radius:25px;
+  overflow:hidden;
+  position:relative;
 }
 
+/* ФОН */
+.banner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('cover.jpg') center/cover no-repeat;
+  z-index:-2;
+}
+
+/* затемнение */
+.banner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:-1;
+}
+
+.banner-content{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.banner h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.banner p{
+  color:#ddd;
+}
 .brand{
   text-align:center;
   padding:100px 20px;
@@ -84,9 +122,11 @@ input,select{
 
 <body>
 
-<section class="brand">
-  <h1>Candles Home</h1>
-  <p>Твій простір заслуговує більше, ніж просто світло</p>
+<section class="banner">
+  <div class="banner-content">
+    <h1>Candles Home</h1>
+    <p>Твій простір заслуговує більше, ніж просто світло</p>
+  </div>
 </section>
 
 <section class="section">
