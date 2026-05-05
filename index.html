@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+  <!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2166184887482833');
+fbq('track', 'PageView');
+</script>
+<!-- End Facebook Pixel -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candles Home</title>
@@ -130,8 +145,8 @@ input,select{
   line-height:1.5;
   }
 </style>
-</head>
 
+</head>
 <body>
 
 <section class="banner">
@@ -226,6 +241,7 @@ function send(){
   .then(res=>res.json())
   .then(data=>{
     if(data.ok){
+      fbq('track', 'Lead');
       alert('Дякуємо за замовлення');
     }else{
       alert('Помилка');
