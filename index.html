@@ -186,10 +186,28 @@ cursor:pointer;
 
 <div class="card">
 <img src="aroma1.jpg">
+
 <div class="card-content">
 <h3>Ароматична свічка</h3>
 <p>Від 200 грн</p>
-<button onclick="choose('Ароматична свічка')">Обрати</button>
+
+<select id="aromaSelect">
+<option value="">Оберіть аромат</option>
+  <option value="Пало Санто">Пало Санто</option>
+  <option value="Франжипані">Франжипані</option>
+  <option value="Кава">Кава</option>
+<option value="Уд Мигдаль">Уд Мигдаль</option>
+<option value="Лаванда">Лаванда</option>
+<option value="Ваніль">Ваніль</option>
+<option value="Півонія">Півонія</option>
+<option value="Троянда">Троянда</option>
+<option value="Шафран Цедра">Шафран Цедра</option>
+</select>
+
+<button onclick="chooseAroma()">
+Обрати
+</button>
+
 </div>
 </div>
 
@@ -218,7 +236,6 @@ cursor:pointer;
 <option value="">Оберіть товар</option>
 <option value="Свічка Тюльпан">Свічка Тюльпан</option>
 <option value="Набір декору">Набір декору</option>
-<option value="Ароматична свічка">Ароматична свічка</option>
 <option value="Свічка з сухоцвітами">Свічка з сухоцвітами</option>
 </select>
 
@@ -255,6 +272,27 @@ behavior:'smooth'
 });
 
 }
+  function chooseAroma(){
+
+const aroma =
+document.getElementById('aromaSelect').value;
+
+if(!aroma){
+
+alert('Оберіть аромат');
+return;
+
+}
+
+document.getElementById('product').value =
+`Ароматична свічка - ${aroma}`;
+
+document.getElementById('order')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+  }
 
 function send(){
 
