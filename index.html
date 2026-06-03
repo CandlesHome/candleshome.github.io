@@ -1,267 +1,175 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <!-- Facebook Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '2166184887482833');
-fbq('track', 'PageView');
-</script>
-<!-- End Facebook Pixel -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candles Home</title>
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:sans-serif;
-  color:#fff;
-  background:url('Loft.jpg') center/cover no-repeat;
-}
-.banner{
-  max-width:1100px;
-  margin:30px auto;
-  border-radius:25px;
-  overflow:hidden;
-  position:relative;
-}
-
-/* ФОН */
-.banner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url('1.1.jpg') center/cover no-repeat;
-  z-index:-2;
-}
-
-/* затемнение */
-.banner::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:-1;
-}
-
-.banner-content{
-  text-align:center;
-  padding:80px 20px;
-}
-
-.banner h1{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-.banner p{
-  color:#ddd;
-}
-.brand{
-  text-align:center;
-  padding:100px 20px;
-  border-radius:25px;
-}
-
-/* ФОН */
-.brand::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url('1.1.jpg') center/cover no-repeat;
-  z-index:-2;
-}
-
-/* ЗАТЕМНЕНИЕ */
-.brand::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.4);
-  z-index:-1;
-}
-.section{
-  padding:40px 20px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-}
-
-.card{
-  background:rgba(0,0,0,.6);
-  padding:20px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.carousel img{
-  width:100%;
-  display:none;
-}
-.carousel img.active{
-  display:block;
-}
-
-button{
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-}
-
-.order{
-  background:rgba(0,0,0,.6);
-  padding:30px;
-  border-radius:20px;
-  max-width:400px;
-  margin:40px auto;
-}
-
-input,select{
-  width:100%;
-  margin:10px 0;
-  padding:10px;
-}
-  .info{
-  max-width:800px;
-  margin:20px auto 30px;
-  padding:18px 20px;
-  text-align:center;
-  background:rgba(20,20,20,.6);
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  color:#fff;
-  font-size:16px;
-  line-height:1.5;
-  }
-</style>
-
-</head>
-<body>
-
-<section class="banner">
-  <div class="banner-content">
-    <h1>Candles Home</h1>
-    <p>Індивідуальні свічки під замовлення
-Персональний напис, вишуканий аромат та вибір кольору воску 🤍</p>
-  </div>
-</section>
 <section class="section">
-  <div class="grid">
 
-    <div class="card">
-      <div class="carousel">
-        <img src="black1.jpg" class="active">
-        <img src="black2.jpg">
-        <img src="black3.jpg">
-      </div>
-      <h3>Аромасвічка з таємним написом</h3>
-      <p>Чорна</p>
-      <div>180 грн</div>
-      <button onclick="choose('black')">Обрати</button>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <div class="carousel">
-        <img src="white1.jpg" class="active">
-        <img src="white2.jpg">
-        <img src="white3.jpg">
-      </div>
-      <h3>Аромасвічка з таємним написом</h3>
-      <p>Біла</p>
-      <div>180 грн</div>
-      <button onclick="choose('white')">Обрати</button>
-    </div>
+<div class="card">
+<img src="tulip1.jpg" style="width:100%">
+<h3>Свічка Тюльпан</h3>
+<p>Від 180 грн</p>
+<button onclick="choose('Свічка Тюльпан')">Обрати</button>
+</div>
 
-  </div>
+<div class="card">
+<img src="decor1.jpg" style="width:100%">
+<h3>Набір декору</h3>
+<p>Від 250 грн</p>
+<button onclick="choose('Набір декору')">Обрати</button>
+</div>
+
+<div class="card">
+<img src="aroma1.jpg" style="width:100%">
+<h3>Ароматична свічка</h3>
+<p>Від 200 грн</p>
+<button onclick="choose('Ароматична свічка')">Обрати</button>
+</div>
+
+<div class="card">
+<img src="flower1.jpg" style="width:100%">
+<h3>Свічка з сухоцвітами</h3>
+<p>Від 220 грн</p>
+<button onclick="choose('Свічка з сухоцвітами')">Обрати</button>
+</div>
+
+</div>
+
 </section>
-  <section class="info">
-  <p>
-    Після оформлення замовлення ми зв’яжемося з вами для уточнення всіх деталей 🤍
-  </p>
-  </section>
+
+<section class="info">
+<p>
+Після оформлення замовлення ми зв'яжемося з вами для уточнення деталей 🤍
+</p>
+</section>
 
 <section class="order" id="order">
-  <h2>Оформлення замовлення</h2>
 
-  <select id="product">
-    <option value="">Оберіть товар</option>
-    <option value="black">Аромасвічка Чорна</option>
-    <option value="white">Аромасвічка Біла</option>
-  </select>
+<h2>Оформлення замовлення</h2>
 
-  <input id="name" placeholder="Ваше імʼя">
-  <input id="phone" placeholder="Телефон">
+<select id="product">
 
-  <button onclick="send()">Відправити</button>
+<option value="">Оберіть товар</option>
+
+<option value="Свічка Тюльпан">
+Свічка Тюльпан
+</option>
+
+<option value="Набір декору">
+Набір декору
+</option>
+
+<option value="Ароматична свічка">
+Ароматична свічка
+</option>
+
+<option value="Свічка з сухоцвітами">
+Свічка з сухоцвітами
+</option>
+
+</select>
+
+<input
+id="name"
+placeholder="Ваше ім'я">
+
+<input
+id="phone"
+placeholder="Телефон">
+
+<textarea
+id="comment"
+placeholder="Ваші побажання до замовлення"
+style="
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+min-height:120px;">
+</textarea>
+
+<button onclick="send()">
+Відправити
+</button>
+
 </section>
 
 <script>
-function choose(p){
-  document.getElementById('product').value = p;
-  document.getElementById('order').scrollIntoView({behavior:'smooth'});
+
+function choose(product){
+
+document.getElementById('product').value = product;
+
+document.getElementById('order')
+.scrollIntoView({
+behavior:'smooth'
+});
+
 }
 
 function send(){
-  const token = '8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU';
-  const chat_id = '245672952';
 
-  const p = document.getElementById('product').value;
-  const n = document.getElementById('name').value;
-  const ph = document.getElementById('phone').value;
+const token = 'ВАШ_BOT_TOKEN';
+const chat = 'ВАШ_CHAT_ID';
 
-  if(!p || !n || !ph){
-    alert('Заповніть усі поля');
-    return;
-  }
+const p =
+document.getElementById('product').value;
 
-  const text = `Замовлення Candles Home
-Товар: ${p}
-Імʼя: ${n}
-Телефон: ${ph}`;
+const n =
+document.getElementById('name').value;
 
-  fetch(`https://api.telegram.org/bot8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU/sendMessage`, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      chat_id:8629717657,
-      text:text
-    })
-  })
-  .then(res=>res.json())
-  .then(data=>{
-    if(data.ok){
-      fbq('track', 'Lead');
-      alert('Дякуємо за замовлення');
-    }else{
-      alert('Помилка');
-    }
-  })
-  .catch(()=>alert('Помилка'));
+const ph =
+document.getElementById('phone').value;
+
+const c =
+document.getElementById('comment').value;
+
+if(!p || !n || !ph){
+
+alert('Заповніть усі поля');
+
+return;
+
 }
 
-// карусель
-document.querySelectorAll('.carousel').forEach(carousel=>{
-  let index = 0;
-  const images = carousel.querySelectorAll('img');
+const text = `
+🕯 НОВЕ ЗАМОВЛЕННЯ
 
-  setInterval(()=>{
-    images[index].classList.remove('active');
-    index = (index + 1) % images.length;
-    images[index].classList.add('active');
-  }, 2500);
+Товар: ${p}
+
+Ім'я: ${n}
+
+Телефон: ${ph}
+
+Побажання:
+${c}
+`;
+
+fetch(
+`https://api.telegram.org/bot${token}/sendMessage`,
+{
+method:'POST',
+headers:{
+'Content-Type':'application/json'
+},
+body:JSON.stringify({
+chat_id:chat,
+text:text
+})
+}
+)
+.then(() => {
+
+alert('Замовлення відправлено ✅');
+
+document.getElementById('name').value='';
+document.getElementById('phone').value='';
+document.getElementById('comment').value='';
+
+})
+.catch(() => {
+
+alert('Помилка відправки');
+
 });
-</script>
 
-</body>
-</html>
+}
+
+</script>
