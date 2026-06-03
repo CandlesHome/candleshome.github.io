@@ -1,93 +1,234 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candles Home</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:url('Loft.jpg') center center/cover fixed;
+color:#fff;
+min-height:100vh;
+}
+
+body::before{
+content:'';
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.45);
+z-index:-1;
+}
+
+.header{
+text-align:center;
+padding:60px 20px;
+}
+
+.header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#ddd;
+}
+
+.section{
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:cover;
+display:block;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:15px;
+color:#ddd;
+}
+
+.card button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.info{
+max-width:900px;
+margin:40px auto;
+padding:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+text-align:center;
+}
+
+.order{
+max-width:800px;
+margin:40px auto;
+padding:30px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+}
+
+.order h2{
+margin-bottom:20px;
+text-align:center;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:none;
+border-radius:12px;
+outline:none;
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.send{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Candles Home</h1>
+<p>Свічки ручної роботи та декор для вашого дому 🤍</p>
+</div>
+
 <section class="section">
 
 <div class="grid">
 
 <div class="card">
-<img src="tulip1.jpg" style="width:100%">
+<img src="tulip1.jpg">
+<div class="card-content">
 <h3>Свічка Тюльпан</h3>
 <p>Від 180 грн</p>
 <button onclick="choose('Свічка Тюльпан')">Обрати</button>
 </div>
+</div>
 
 <div class="card">
-<img src="decor1.jpg" style="width:100%">
+<img src="decor1.jpg">
+<div class="card-content">
 <h3>Набір декору</h3>
 <p>Від 250 грн</p>
 <button onclick="choose('Набір декору')">Обрати</button>
 </div>
+</div>
 
 <div class="card">
-<img src="aroma1.jpg" style="width:100%">
+<img src="aroma1.jpg">
+<div class="card-content">
 <h3>Ароматична свічка</h3>
 <p>Від 200 грн</p>
 <button onclick="choose('Ароматична свічка')">Обрати</button>
 </div>
+</div>
 
 <div class="card">
-<img src="flower1.jpg" style="width:100%">
+<img src="flower1.jpg">
+<div class="card-content">
 <h3>Свічка з сухоцвітами</h3>
 <p>Від 220 грн</p>
 <button onclick="choose('Свічка з сухоцвітами')">Обрати</button>
 </div>
+</div>
 
 </div>
 
 </section>
 
-<section class="info">
-<p>
+<div class="info">
 Після оформлення замовлення ми зв'яжемося з вами для уточнення деталей 🤍
-</p>
-</section>
+</div>
 
 <section class="order" id="order">
 
 <h2>Оформлення замовлення</h2>
 
 <select id="product">
-
 <option value="">Оберіть товар</option>
-
-<option value="Свічка Тюльпан">
-Свічка Тюльпан
-</option>
-
-<option value="Набір декору">
-Набір декору
-</option>
-
-<option value="Ароматична свічка">
-Ароматична свічка
-</option>
-
-<option value="Свічка з сухоцвітами">
-Свічка з сухоцвітами
-</option>
-
+<option value="Свічка Тюльпан">Свічка Тюльпан</option>
+<option value="Набір декору">Набір декору</option>
+<option value="Ароматична свічка">Ароматична свічка</option>
+<option value="Свічка з сухоцвітами">Свічка з сухоцвітами</option>
 </select>
 
-<input
-id="name"
-placeholder="Ваше ім'я">
+<input id="name" placeholder="Ваше ім'я">
 
-<input
-id="phone"
-placeholder="Телефон">
+<input id="phone" placeholder="Телефон">
 
-<textarea
-id="comment"
-placeholder="Ваші побажання до замовлення"
-style="
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:10px;
-min-height:120px;">
-</textarea>
+<textarea id="comment" placeholder="Ваші побажання до замовлення"></textarea>
 
-<button onclick="send()">
-Відправити
-</button>
+<button class="send" onclick="send()">Відправити</button>
 
 </section>
 
@@ -97,8 +238,7 @@ function choose(product){
 
 document.getElementById('product').value = product;
 
-document.getElementById('order')
-.scrollIntoView({
+document.getElementById('order').scrollIntoView({
 behavior:'smooth'
 });
 
@@ -109,28 +249,20 @@ function send(){
 const token = 'ВАШ_BOT_TOKEN';
 const chat = 'ВАШ_CHAT_ID';
 
-const p =
-document.getElementById('product').value;
-
-const n =
-document.getElementById('name').value;
-
-const ph =
-document.getElementById('phone').value;
-
-const c =
-document.getElementById('comment').value;
+const p = document.getElementById('product').value;
+const n = document.getElementById('name').value;
+const ph = document.getElementById('phone').value;
+const c = document.getElementById('comment').value;
 
 if(!p || !n || !ph){
 
 alert('Заповніть усі поля');
-
 return;
 
 }
 
-const text = `
-🕯 НОВЕ ЗАМОВЛЕННЯ
+const text =
+`🕯 НОВЕ ЗАМОВЛЕННЯ
 
 Товар: ${p}
 
@@ -139,12 +271,9 @@ const text = `
 Телефон: ${ph}
 
 Побажання:
-${c}
-`;
+${c}`;
 
-fetch(
-`https://api.telegram.org/bot${token}/sendMessage`,
-{
+fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
 method:'POST',
 headers:{
 'Content-Type':'application/json'
@@ -153,23 +282,21 @@ body:JSON.stringify({
 chat_id:chat,
 text:text
 })
-}
-)
-.then(() => {
-
+})
+.then(()=>{
 alert('Замовлення відправлено ✅');
 
 document.getElementById('name').value='';
 document.getElementById('phone').value='';
 document.getElementById('comment').value='';
-
 })
-.catch(() => {
-
+.catch(()=>{
 alert('Помилка відправки');
-
 });
 
 }
 
 </script>
+
+</body>
+</html>
