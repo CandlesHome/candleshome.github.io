@@ -284,7 +284,27 @@ return;
 
 }
 
-document.getElementById('product').value =
+const product =
+document.getElementById('product');
+
+let option =
+document.querySelector('#product option[value="Ароматична свічка"]');
+
+if(!option){
+
+option = document.createElement('option');
+option.value = 'Ароматична свічка';
+product.appendChild(option);
+
+}
+
+option.text =
+`Ароматична свічка - ${aroma}`;
+
+option.value =
+`Ароматична свічка - ${aroma}`;
+
+product.value =
 `Ароматична свічка - ${aroma}`;
 
 document.getElementById('order')
