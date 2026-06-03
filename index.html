@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    <!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candles Home</title>
@@ -170,7 +181,7 @@ cursor:pointer;
 <img src="tulip1.jpg">
 <div class="card-content">
 <h3>Свічка Тюльпан</h3>
-<p>Від 180 грн</p>
+<p> 40 грн. / 1 шт. </p>
 <button onclick="choose('Свічка Тюльпан')">Обрати</button>
 </div>
 </div>
@@ -179,7 +190,7 @@ cursor:pointer;
 <img src="decor1.jpg">
 <div class="card-content">
 <h3>Набір декору</h3>
-<p>Від 250 грн</p>
+<p>Від 150 грн.</p>
 <button onclick="choose('Набір декору')">Обрати</button>
 </div>
 </div>
@@ -189,7 +200,7 @@ cursor:pointer;
 
 <div class="card-content">
 <h3>Ароматична свічка</h3>
-<p>Від 200 грн</p>
+<p>200 грн.</p>
 
 <select id="aromaSelect">
 <option value="">Оберіть аромат</option>
@@ -215,7 +226,7 @@ cursor:pointer;
 <img src="flower1.jpg">
 <div class="card-content">
 <h3>Свічка з сухоцвітами</h3>
-<p>Від 220 грн</p>
+<p>220 грн.</p>
 <button onclick="choose('Свічка з сухоцвітами')">Обрати</button>
 </div>
 </div>
@@ -315,58 +326,55 @@ behavior:'smooth'
 
   }
 
+<script>
+function choose(p){
+  document.getElementById('product').value = p;
+  document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+
 function send(){
+  const token = '8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU';
+  const chat_id = '245672952';
 
-const token = 'ВАШ_BOT_TOKEN';
-const chat = 'ВАШ_CHAT_ID';
+  const p = document.getElementById('product').value;
+  const n = document.getElementById('name').value;
+  const ph = document.getElementById('phone').value;
 
-const p = document.getElementById('product').value;
-const n = document.getElementById('name').value;
-const ph = document.getElementById('phone').value;
-const c = document.getElementById('comment').value;
+  if(!p || !n || !ph){
+    alert('Заповніть усі поля');
+    return;
+  }
 
-if(!p || !n || !ph){
-
-alert('Заповніть усі поля');
-return;
-
-}
-
-const text =
-`🕯 НОВЕ ЗАМОВЛЕННЯ
-
+  const text = `Замовлення Candles Home
 Товар: ${p}
+Імʼя: ${n}
+Телефон: ${ph}`;
 
-Ім'я: ${n}
-
-Телефон: ${ph}
-
-Побажання:
-${c}`;
-
-fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
-method:'POST',
-headers:{
-'Content-Type':'application/json'
-},
-body:JSON.stringify({
-chat_id:chat,
-text:text
-})
-})
-.then(()=>{
-alert('Замовлення відправлено ✅');
-
-document.getElementById('name').value='';
-document.getElementById('phone').value='';
-document.getElementById('comment').value='';
-})
-.catch(()=>{
-alert('Помилка відправки');
-});
-
+  fetch(`https://api.telegram.org/bot8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU/sendMessage`, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      chat_id:8629717657,
+      text:text
+    })
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    if(data.ok){
+      fbq('track', 'Lead');
+      alert('Дякуємо за замовлення');
+    }else{
+      alert('Помилка');
+    }
+  })
+  .catch(()=>alert('Помилка'));
 }
-
+  setInterval(()=>{
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 2500);
+});
 </script>
 
 </body>
