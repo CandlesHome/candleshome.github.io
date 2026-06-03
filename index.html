@@ -222,16 +222,28 @@ cursor:pointer;
 <option value="Свічка з сухоцвітами">Свічка з сухоцвітами</option>
 </select>
 
+<select id="quantity">
+<option value="1">1 шт.</option>
+<option value="2">2 шт.</option>
+<option value="3">3 шт.</option>
+<option value="4">4 шт.</option>
+<option value="5">5 шт.</option>
+<option value="10">10 шт.</option>
+</select>
+
 <input id="name" placeholder="Ваше ім'я">
 
 <input id="phone" placeholder="Телефон">
 
-<textarea id="comment" placeholder="Ваші побажання до замовлення"></textarea>
+<textarea
+id="comment"
+placeholder="Ваші побажання до замовлення"></textarea>
 
-<button class="send" onclick="send()">Відправити</button>
+<button class="send" onclick="send()">
+Відправити
+</button>
 
 </section>
-
 <script>
 
 function choose(product){
