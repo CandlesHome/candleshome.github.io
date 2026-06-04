@@ -181,8 +181,27 @@ cursor:pointer;
 <div class="card-content">
 <h3>Свічка Тюльпан</h3>
 <p> 40 грн. / 1 шт. </p>
-<button onclick="choose('Свічка Тюльпан')">Обрати</button>
-</div>
+<button onclick="chooseTulip()">
+Обрати
+</button>
+<select id="tulipColor">
+<option value="">Оберіть колір</option>
+<option value="Жовтий">Жовтий</option>
+<option value="Синій">Синій</option>
+<option value="Червоний">Червоний</option>
+<option value="Білий">Білий</option>
+<option value="Фіолетовий">Фіолетовий</option>
+<option value="Зелений">Зелений</option>
+<option value="Рожевий">Рожевий</option>
+<option value="Чорний">Чорний</option>
+<option value="Помаранчевий">Помаранчевий</option>
+<option value="Свій варіант">Свій варіант</option>
+</select>
+
+<input
+id="customColor"
+placeholder="Вкажіть свій колір"
+style="display:none;margin-top:10px;">
 </div>
 
 <div class="card">
@@ -228,8 +247,33 @@ cursor:pointer;
 <p>220 грн.</p>
 <button onclick="choose('Свічка з сухоцвітами')">Обрати</button>
 </div>
-</div>
+<div class="card">
+<img src="blackedition.jpg" style="width:100%">
+<h3>Тюльпан Black Edition</h3>
+<p>Від 220 грн</p>
+    
+<select id="blackTulipColor">
+<select id="blackTulipColor">
+<option value="">Оберіть колір</option>
+<option value="Чорно-синій">Чорно-синій</option>
+<option value="Чорно-рожевий">Чорно-рожевий</option>
+<option value="Чорно-зелений">Чорно-зелений</option>
+<option value="Чорно-червоний">Чорно-червоний</option>
+<option value="Чорно-жовтий">Чорно-жовтий</option>
+<option value="Чорно-помаранчевий">Чорно-помаранчевий</option>
+<option value="Свій варіант">Свій варіант</option>
+</select>
 
+<input
+id="blackCustomColor"
+placeholder="Вкажіть свій варіант"
+style="display:none;margin-top:10px;">
+
+<button onclick="chooseBlackTulip()">
+Обрати
+</button>
+
+</div>
 </div>
 
 </section>
@@ -248,6 +292,7 @@ cursor:pointer;
 <option value="Набір декору">Набір декору</option>
 <option value="Ароматична свічка">Ароматична свічка</option>
 <option value="Свічка з сухоцвітами">Свічка з сухоцвітами</option>
+<option value="Тюльпан Black Edition">Тюльпан Black Edition</option>
 </select>
 
 <select id="quantity">
@@ -329,6 +374,93 @@ behavior:'smooth'
 function choose(p){
   document.getElementById('product').value = p;
   document.getElementById('order').scrollIntoView({behavior:'smooth'});
+    document.getElementById('tulipColor')
+.addEventListener('change', function(){
+
+if(this.value === 'Свій варіант'){
+
+document.getElementById('customColor')
+.style.display='block';
+
+}else{
+
+document.getElementById('customColor')
+.style.display='none';
+
+}
+
+});
+
+function chooseTulip(){
+
+let color =
+document.getElementById('tulipColor').value;
+
+if(!color){
+
+alert('Оберіть колір');
+return;
+
+}
+
+if(color === 'Свій варіант'){
+
+color =
+document.getElementById('customColor').value;
+
+}
+
+document.getElementById('product').value =
+`Свічка Тюльпан (${color})`;
+
+document.getElementById('order')
+.scrollIntoView({
+behavior:'smooth'
+});
+document.getElementById('blackTulipColor')
+.addEventListener('change', function(){
+
+if(this.value === 'Свій варіант'){
+
+document.getElementById('blackCustomColor')
+.style.display='block';
+
+}else{
+
+document.getElementById('blackCustomColor')
+.style.display='none';
+
+}
+
+});
+
+function chooseBlackTulip(){
+
+let color =
+document.getElementById('blackTulipColor').value;
+
+if(!color){
+
+alert('Оберіть колір');
+return;
+
+}
+
+if(color === 'Свій варіант'){
+
+color =
+document.getElementById('blackCustomColor').value;
+
+}
+
+document.getElementById('product').value =
+`Тюльпан Black Edition (${color})`;
+
+document.getElementById('order')
+.scrollIntoView({
+behavior:'smooth'
+});
+
 }
 
 function send(){
