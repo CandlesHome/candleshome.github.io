@@ -436,17 +436,26 @@ text:text
 .then(r=>r.json())
 .then(data=>{
 
+console.log(data);
+
 if(data.ok){
 
 fbq('track','Lead');
 
-alert('Замовлення відправлено');
+alert('Замовлення відправлено!');
 
 }else{
 
-alert('Помилка');
+alert(data.description);
 
 }
+
+})
+.catch(error=>{
+
+console.log(error);
+
+alert(error);
 
 });
 
