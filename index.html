@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candles Home</title
-    <!-- Facebook Pixel -->
+<title>Candles Home</title>
+
+<!-- Facebook Pixel -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -12,11 +13,15 @@ n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');  
-  </script>
-<style>
+s.parentNode.insertBefore(t,s)}
+(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
+fbq('init', 'PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+
+<style>
 *{
 margin:0;
 padding:0;
@@ -26,17 +31,13 @@ font-family:Arial,sans-serif;
 
 body{
 background:url('Loft.jpg') center center/cover fixed;
-color:#fff;
-min-height:100vh;
+color:white;
 }
 
 body::before{
 content:'';
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:rgba(0,0,0,.45);
 z-index:-1;
 }
@@ -51,75 +52,52 @@ font-size:42px;
 margin-bottom:10px;
 }
 
-.header p{
-color:#ddd;
-}
-
 .section{
-padding:20px;
 max-width:1200px;
 margin:auto;
+padding:20px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
 .card{
 background:rgba(255,255,255,.08);
 backdrop-filter:blur(15px);
--webkit-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
-border-radius:25px;
+border-radius:20px;
 overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
 }
 
 .card img{
 width:100%;
 height:280px;
 object-fit:cover;
-display:block;
 }
 
 .card-content{
 padding:20px;
 }
 
-.card h3{
-margin-bottom:10px;
-}
-
-.card p{
-margin-bottom:15px;
-color:#ddd;
-}
-
-.card button{
+.card button,
+.send{
 width:100%;
 padding:12px;
 border:none;
-border-radius:12px;
-background:white;
-font-weight:bold;
+border-radius:10px;
 cursor:pointer;
+font-weight:bold;
+margin-top:10px;
 }
 
-.info{
-max-width:900px;
-margin:40px auto;
-padding:25px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border-radius:20px;
-text-align:center;
+select,input,textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
 }
 
 .order{
@@ -131,37 +109,15 @@ backdrop-filter:blur(15px);
 border-radius:20px;
 }
 
-.order h2{
-margin-bottom:20px;
+.info{
+max-width:800px;
+margin:30px auto;
+padding:20px;
 text-align:center;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
 }
-
-input,
-select,
-textarea{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border:none;
-border-radius:12px;
-outline:none;
-}
-
-textarea{
-min-height:120px;
-resize:vertical;
-}
-
-.send{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-background:white;
-font-weight:bold;
-cursor:pointer;
-}
-
 </style>
 </head>
 
@@ -176,61 +132,94 @@ cursor:pointer;
 
 <div class="grid">
 
+<!-- ТЮЛЬПАН -->
+
 <div class="card">
 <img src="tulip1.jpg">
+
 <div class="card-content">
+
 <h3>Свічка Тюльпан</h3>
-<p> 40 грн. / 1 шт. </p>
+<p>40 грн / 1 шт</p>
+
+<select id="tulipColor">
+<option value="">Оберіть колір</option>
+<option>Жовтий</option>
+<option>Синій</option>
+<option>Червоний</option>
+<option>Білий</option>
+<option>Фіолетовий</option>
+<option>Зелений</option>
+<option>Рожевий</option>
+<option>Чорний</option>
+<option>Помаранчевий</option>
+<option>Свій варіант</option>
+</select>
+
+<input id="customTulipColor"
+placeholder="Ваш колір"
+style="display:none;">
+
 <button onclick="chooseTulip()">
 Обрати
 </button>
-<select id="tulipColor">
-<option value="">Оберіть колір</option>
-<option value="Жовтий">Жовтий</option>
-<option value="Синій">Синій</option>
-<option value="Червоний">Червоний</option>
-<option value="Білий">Білий</option>
-<option value="Фіолетовий">Фіолетовий</option>
-<option value="Зелений">Зелений</option>
-<option value="Рожевий">Рожевий</option>
-<option value="Чорний">Чорний</option>
-<option value="Помаранчевий">Помаранчевий</option>
-<option value="Свій варіант">Свій варіант</option>
-</select>
 
-<input
-id="customColor"
-placeholder="Вкажіть свій колір"
-style="display:none;margin-top:10px;">
 </div>
+</div>
+
+<!-- BLACK EDITION -->
 
 <div class="card">
-<img src="decor1.jpg">
+<img src="blackedition.jpg">
+
 <div class="card-content">
-<h3>Набір декору</h3>
-<p>Від 150 грн.</p>
-<button onclick="choose('Набір декору')">Обрати</button>
+
+<h3>Тюльпан Black Edition</h3>
+<p>220 грн</p>
+
+<select id="blackTulipColor">
+<option value="">Оберіть колір</option>
+<option>Чорно-синій</option>
+<option>Чорно-рожевий</option>
+<option>Чорно-зелений</option>
+<option>Чорно-червоний</option>
+<option>Чорно-жовтий</option>
+<option>Чорно-помаранчевий</option>
+<option>Свій варіант</option>
+</select>
+
+<input id="customBlackColor"
+placeholder="Ваш варіант"
+style="display:none;">
+
+<button onclick="chooseBlackTulip()">
+Обрати
+</button>
+
 </div>
 </div>
+
+<!-- АРОМА -->
 
 <div class="card">
 <img src="aroma1.jpg">
 
 <div class="card-content">
+
 <h3>Ароматична свічка</h3>
-<p>200 грн.</p>
+<p>200 грн</p>
 
 <select id="aromaSelect">
 <option value="">Оберіть аромат</option>
-  <option value="Пало Санто">Пало Санто</option>
-  <option value="Франжипані">Франжипані</option>
-  <option value="Кава">Кава</option>
-<option value="Уд Мигдаль">Уд Мигдаль</option>
-<option value="Лаванда">Лаванда</option>
-<option value="Ваніль">Ваніль</option>
-<option value="Півонія">Півонія</option>
-<option value="Троянда">Троянда</option>
-<option value="Шафран Цедра">Шафран Цедра</option>
+<option>Пало Санто</option>
+<option>Франжипані</option>
+<option>Кава</option>
+<option>Уд Мигдаль</option>
+<option>Лаванда</option>
+<option>Ваніль</option>
+<option>Півонія</option>
+<option>Троянда</option>
+<option>Шафран Цедра</option>
 </select>
 
 <button onclick="chooseAroma()">
@@ -240,40 +229,40 @@ style="display:none;margin-top:10px;">
 </div>
 </div>
 
+<!-- ДЕКОР -->
+
 <div class="card">
-<img src="flower1.jpg">
+<img src="decor1.jpg">
+
 <div class="card-content">
-<h3>Свічка з сухоцвітами</h3>
-<p>220 грн.</p>
-<button onclick="choose('Свічка з сухоцвітами')">Обрати</button>
-</div>
-<div class="card">
-<img src="blackedition.jpg" style="width:100%">
-<h3>Тюльпан Black Edition</h3>
-<p>Від 220 грн</p>
-    
-<select id="blackTulipColor">
-<select id="blackTulipColor">
-<option value="">Оберіть колір</option>
-<option value="Чорно-синій">Чорно-синій</option>
-<option value="Чорно-рожевий">Чорно-рожевий</option>
-<option value="Чорно-зелений">Чорно-зелений</option>
-<option value="Чорно-червоний">Чорно-червоний</option>
-<option value="Чорно-жовтий">Чорно-жовтий</option>
-<option value="Чорно-помаранчевий">Чорно-помаранчевий</option>
-<option value="Свій варіант">Свій варіант</option>
-</select>
 
-<input
-id="blackCustomColor"
-placeholder="Вкажіть свій варіант"
-style="display:none;margin-top:10px;">
+<h3>Набір декору</h3>
+<p>Від 150 грн</p>
 
-<button onclick="chooseBlackTulip()">
+<button onclick="chooseProduct('Набір декору')">
 Обрати
 </button>
 
 </div>
+</div>
+
+<!-- СУХОЦВІТИ -->
+
+<div class="card">
+<img src="flower1.jpg">
+
+<div class="card-content">
+
+<h3>Свічка з сухоцвітами</h3>
+<p>220 грн</p>
+
+<button onclick="chooseProduct('Свічка з сухоцвітами')">
+Обрати
+</button>
+
+</div>
+</div>
+
 </div>
 
 </section>
@@ -286,226 +275,182 @@ style="display:none;margin-top:10px;">
 
 <h2>Оформлення замовлення</h2>
 
-<select id="product">
-<option value="">Оберіть товар</option>
-<option value="Свічка Тюльпан">Свічка Тюльпан</option>
-<option value="Набір декору">Набір декору</option>
-<option value="Ароматична свічка">Ароматична свічка</option>
-<option value="Свічка з сухоцвітами">Свічка з сухоцвітами</option>
-<option value="Тюльпан Black Edition">Тюльпан Black Edition</option>
-</select>
+<input id="product" placeholder="Товар">
 
 <select id="quantity">
-<option value="1">1 шт.</option>
-<option value="2">2 шт.</option>
-<option value="3">3 шт.</option>
-<option value="4">4 шт.</option>
-<option value="5">5 шт.</option>
-<option value="10">10 шт.</option>
+<option>1 шт.</option>
+<option>2 шт.</option>
+<option>3 шт.</option>
+<option>4 шт.</option>
+<option>5 шт.</option>
+<option>10 шт.</option>
 </select>
 
 <input id="name" placeholder="Ваше ім'я">
-
 <input id="phone" placeholder="Телефон">
 
-<textarea
-id="comment"
-placeholder="Ваші побажання до замовлення"></textarea>
+<textarea id="comment"
+placeholder="Ваші побажання"></textarea>
 
-<button class="send" onclick="send()">
+<button class="send"
+onclick="sendOrder()">
 Відправити
 </button>
 
 </section>
+
 <script>
 
-function choose(product){
+document.getElementById('tulipColor')
+.addEventListener('change',function(){
 
-document.getElementById('product').value = product;
+document.getElementById('customTulipColor')
+.style.display=
+this.value==='Свій варіант'
+?'block':'none';
 
-document.getElementById('order').scrollIntoView({
-behavior:'smooth'
 });
 
-}
-  function chooseAroma(){
+document.getElementById('blackTulipColor')
+.addEventListener('change',function(){
 
-const aroma =
-document.getElementById('aromaSelect').value;
+document.getElementById('customBlackColor')
+.style.display=
+this.value==='Свій варіант'
+?'block':'none';
 
-if(!aroma){
+});
 
-alert('Оберіть аромат');
-return;
-
-}
-
-const product =
-document.getElementById('product');
-
-let option =
-document.querySelector('#product option[value="Ароматична свічка"]');
-
-if(!option){
-
-option = document.createElement('option');
-option.value = 'Ароматична свічка';
-product.appendChild(option);
-
-}
-
-option.text =
-`Ароматична свічка - ${aroma}`;
-
-option.value =
-`Ароматична свічка - ${aroma}`;
-
-product.value =
-`Ароматична свічка - ${aroma}`;
-
+function scrollOrder(){
 document.getElementById('order')
-.scrollIntoView({
-behavior:'smooth'
-});
-
-  }
-
-<script>
-function choose(p){
-  document.getElementById('product').value = p;
-  document.getElementById('order').scrollIntoView({behavior:'smooth'});
-    document.getElementById('tulipColor')
-.addEventListener('change', function(){
-
-if(this.value === 'Свій варіант'){
-
-document.getElementById('customColor')
-.style.display='block';
-
-}else{
-
-document.getElementById('customColor')
-.style.display='none';
-
+.scrollIntoView({behavior:'smooth'});
 }
 
-});
+function chooseProduct(product){
+document.getElementById('product').value=product;
+scrollOrder();
+}
 
 function chooseTulip(){
 
-let color =
+let color=
 document.getElementById('tulipColor').value;
 
 if(!color){
-
 alert('Оберіть колір');
 return;
-
 }
 
-if(color === 'Свій варіант'){
-
-color =
-document.getElementById('customColor').value;
-
+if(color==='Свій варіант'){
+color=
+document.getElementById('customTulipColor').value;
 }
 
-document.getElementById('product').value =
-`Свічка Тюльпан (${color})`;
+document.getElementById('product').value=
+'Свічка Тюльпан - '+color;
 
-document.getElementById('order')
-.scrollIntoView({
-behavior:'smooth'
-});
-document.getElementById('blackTulipColor')
-.addEventListener('change', function(){
-
-if(this.value === 'Свій варіант'){
-
-document.getElementById('blackCustomColor')
-.style.display='block';
-
-}else{
-
-document.getElementById('blackCustomColor')
-.style.display='none';
-
+scrollOrder();
 }
-
-});
 
 function chooseBlackTulip(){
 
-let color =
+let color=
 document.getElementById('blackTulipColor').value;
 
 if(!color){
-
 alert('Оберіть колір');
 return;
+}
+
+if(color==='Свій варіант'){
+color=
+document.getElementById('customBlackColor').value;
+}
+
+document.getElementById('product').value=
+'Тюльпан Black Edition - '+color;
+
+scrollOrder();
+}
+
+function chooseAroma(){
+
+const aroma=
+document.getElementById('aromaSelect').value;
+
+if(!aroma){
+alert('Оберіть аромат');
+return;
+}
+
+document.getElementById('product').value=
+'Ароматична свічка - '+aroma;
+
+scrollOrder();
+}
+
+function sendOrder(){
+
+const product=
+document.getElementById('product').value;
+
+const quantity=
+document.getElementById('quantity').value;
+
+const name=
+document.getElementById('name').value;
+
+const phone=
+document.getElementById('phone').value;
+
+const comment=
+document.getElementById('comment').value;
+
+if(!product || !name || !phone){
+alert('Заповніть усі поля');
+return;
+}
+
+const text=
+`🕯 Нове замовлення
+
+Товар: ${product}
+Кількість: ${quantity}
+Ім'я: ${name}
+Телефон: ${phone}
+Коментар: ${comment}`;
+
+fetch(
+'https://api.telegram.org/bot8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU/sendMessage',
+{
+method:'POST',
+headers:{
+'Content-Type':'application/json'
+},
+body:JSON.stringify({
+chat_id:'245672952',
+text:text
+})
+}
+)
+.then(r=>r.json())
+.then(data=>{
+
+if(data.ok){
+
+fbq('track','Lead');
+
+alert('Замовлення відправлено');
+
+}else{
+
+alert('Помилка');
 
 }
 
-if(color === 'Свій варіант'){
-
-color =
-document.getElementById('blackCustomColor').value;
-
-}
-
-document.getElementById('product').value =
-`Тюльпан Black Edition (${color})`;
-
-document.getElementById('order')
-.scrollIntoView({
-behavior:'smooth'
 });
 
 }
-
-function send(){
-  const token = '8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU';
-  const chat_id = '245672952';
-
-  const p = document.getElementById('product').value;
-  const n = document.getElementById('name').value;
-  const ph = document.getElementById('phone').value;
-
-  if(!p || !n || !ph){
-    alert('Заповніть усі поля');
-    return;
-  }
-
-  const text = `Замовлення Candles Home
-Товар: ${p}
-Імʼя: ${n}
-Телефон: ${ph}`;
-
-  fetch(`https://api.telegram.org/bot8309821481:AAFJUBalSpC1njbBzzyPu1yNet99zS3SHBU/sendMessage`, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      chat_id:8629717657,
-      text:text
-    })
-  })
-  .then(res=>res.json())
-  .then(data=>{
-    if(data.ok){
-      fbq('track', 'Lead');
-      alert('Дякуємо за замовлення');
-    }else{
-      alert('Помилка');
-    }
-  })
-  .catch(()=>alert('Помилка'));
-}
-  setInterval(()=>{
-    images[index].classList.remove('active');
-    index = (index + 1) % images.length;
-    images[index].classList.add('active');
-  }, 2500);
-});
 </script>
 
 </body>
